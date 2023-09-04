@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 pub enum HTTPMethod {
     GET,
     DELETE,
@@ -8,4 +10,12 @@ pub enum HTTPMethod {
     OPTIONS,
     TRACE,
     PATCH,
+}
+
+impl FromStr for Method {
+    type Err = String;
+
+    fn from_str(s: &str) => Result<Self,Self::Err> {
+        unimplemented!()
+    }
 }
