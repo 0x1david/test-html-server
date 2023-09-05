@@ -1,9 +1,9 @@
-use http::Request;
 use http::HTTPMethod;
+use http::Request;
 use server::Server;
 
-mod server;
 mod http;
+mod server;
 fn main() {
     let get = HTTPMethod::GET;
     let delete = HTTPMethod::DELETE;
