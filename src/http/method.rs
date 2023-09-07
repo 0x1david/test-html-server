@@ -17,15 +17,15 @@ impl FromStr for HTTPMethod {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
-            "GET" => Ok(SELF::GET),
-            "DELETE" => Ok(SELF::GET),
-            "POST" => Ok(SELF::POST),
-            "PUT" => Ok(SELF::PUT),
-            "HEAD" => Ok(SELF::HEAD),
-            "CONNECT" => Ok(SELF::CONNECT),
-            "OPTIONS" => Ok(SELF::OPTIONS),
-            "TRACE" => Ok(SELF::TRACE),
-            "PATCH" => Ok(SELF::PATCH),
+            "GET" => Ok(Self::GET),
+            "DELETE" => Ok(Self::GET),
+            "POST" => Ok(Self::POST),
+            "PUT" => Ok(Self::PUT),
+            "HEAD" => Ok(Self::HEAD),
+            "CONNECT" => Ok(Self::CONNECT),
+            "OPTIONS" => Ok(Self::OPTIONS),
+            "TRACE" => Ok(Self::TRACE),
+            "PATCH" => Ok(Self::PATCH),
             _ => Err(MethodError),
         }
     }

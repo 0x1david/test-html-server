@@ -5,13 +5,13 @@ use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
 use std::str;
 use std::str::Utf8Error;
 
-pub struct Request {
-    path: String,
-    query_string: Option<String>,
+pub struct Request<'buf> {
+    path: &'buf str,
+    query_string: Option<&'buf str>,
     method: HTTPMethod,
 }
 
-impl TryFrom<&[u8]> for Request {
+impl<'buf> TryFrom<&[u8]> for Request<'buf> {
     type Error = ParseError;
 
     fn try_from(buf: &[u8]) -> Result<Self, Self::Error> {
@@ -32,7 +32,11 @@ impl TryFrom<&[u8]> for Request {
             query_string = Some(&path[i + 1..]);
             path = &path[..i];
         }
-        unimplemented!()
+        Ok(Self {
+            path,
+            query_string,
+            method
+        })
     }
 }
 
