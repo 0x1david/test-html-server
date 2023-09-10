@@ -1,5 +1,6 @@
 use std::{default, str::FromStr};
 
+#[derive(Debug)]
 pub enum HTTPMethod {
     GET,
     DELETE,

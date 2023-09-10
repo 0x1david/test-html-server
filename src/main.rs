@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use http::HTTPMethod;
 use http::Request;
 use server::Server;
